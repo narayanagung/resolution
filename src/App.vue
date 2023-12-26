@@ -11,38 +11,55 @@ import TodoHeader from "./components/TodoHeader.vue";
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap");
 
-* {
+*,
+::after,
+::before {
 	font-family: "Poppins", sans-serif;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 
+:root {
+	color-scheme: light dark;
+}
+
 html {
 	scrollbar-width: thin;
 
 	::-webkit-scrollbar {
-		width: 5px;
+		width: 10px;
 		height: 5px;
 	}
 
 	::-webkit-scrollbar-track {
-		background: rgb(0, 0, 0, 0);
-		border-radius: 8px;
+		background: hsla(0, 0%, 0%, 0);
 	}
 
 	::-webkit-scrollbar-thumb {
-		background: darkgrey;
+		background: hsl(0, 0%, 66%);
 		border-radius: 8px;
 	}
 
 	::-webkit-scrollbar-thumb:hover {
-		background: gray;
+		background: hsl(0, 0%, 50%);
+	}
+
+	@media (prefers-color-scheme: dark) {
+		color: #fafafa;
 	}
 }
 
-.wrap {
-	max-width: 100vw;
+.nav-wrap {
+	max-width: 35rem;
 	margin: 0 auto;
+
+	@media screen and (min-width: 565px) {
+		max-width: 100rem;
+	}
+}
+
+img {
+	display: block;
 }
 </style>

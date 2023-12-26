@@ -26,8 +26,13 @@ const createTodo = () => {
 		:class="{ 'input-err': todoState.invalid }">
 		<input
 			type="text"
+			placeholder="Add your goals"
 			v-model="todoState.todo" />
-		<button @click="createTodo()">Create</button>
+		<button
+			title="Add goals to the list"
+			@click="createTodo()">
+			Add
+		</button>
 	</div>
 	<small
 		v-show="todoState.invalid"
@@ -40,19 +45,27 @@ const createTodo = () => {
 .input-wrap {
 	display: flex;
 	transition: 250ms ease;
-	border: 2px solid #cacaca;
+	border: 2px solid hsl(154, 46%, 47%);
 
 	&:focus-within {
-		border: 2px solid #41b080;
+		border: 2px solid hsl(154, 46%, 47%);
 	}
 
 	&.input-err {
-		border-color: hsla(0, 100%, 50%, 0.7);
+		border-color: hsla(0, 100%, 50%, 0.9);
+
+		button {
+			background-color: hsla(0, 100%, 50%, 0.9);
+
+			&:hover {
+				background-color: hsla(0, 100%, 60%, 1);
+			}
+		}
 	}
 
 	input {
 		width: 100%;
-		padding: 8px 6px;
+		padding: 0.5rem 0.5rem;
 		border: none;
 
 		&:focus {
@@ -61,12 +74,15 @@ const createTodo = () => {
 	}
 
 	button {
-		padding: 8px 16px;
+		background-color: hsl(154, 46%, 47%);
+		padding: 0.5rem 1rem;
 		border: none;
 		cursor: pointer;
+		font-weight: bold;
+		color: white;
 
 		&:hover {
-			background-color: hsl(0, 0%, 90%);
+			background-color: hsl(154, 46%, 55%);
 			transition: 150ms ease-in-out;
 		}
 	}
@@ -74,7 +90,7 @@ const createTodo = () => {
 
 .err-msg {
 	margin: 0.5rem 0 0.5rem 0;
-	color: hsla(0, 100%, 50%, 0.7);
+	color: hsl(0, 100%, 55%);
 	text-align: center;
 }
 </style>

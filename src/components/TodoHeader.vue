@@ -1,23 +1,24 @@
 <script setup>
 import { RouterLink } from "vue-router";
+import { formatDate } from "@vueuse/core";
 </script>
 
 <template>
 	<header>
-		<nav class="wrap">
+		<nav class="nav-wrap">
 			<div class="branding">
 				<img
 					title="Logo"
 					src="../assets/logo.png"
 					alt="Vue 3 Logo" />
-				<h3 title="Todos">Todos</h3>
-			</div>
-			<ul class="nav-routes">
 				<RouterLink
+					class="router-link"
 					to="/"
 					title="Homepage"
-					>Home</RouterLink
+					><h4>Resolution - {{ formatDate(new Date(), "YYYY") }}</h4></RouterLink
 				>
+			</div>
+			<ul class="nav-routes">
 				<RouterLink
 					to="/about"
 					title="About this app"
@@ -30,12 +31,10 @@ import { RouterLink } from "vue-router";
 
 <style lang="scss" scoped>
 header {
-	background-color: #f1f1f1;
-
 	nav {
 		display: flex;
 		align-items: center;
-		padding: 1rem 1.5rem;
+		padding: 1rem;
 
 		.branding {
 			display: flex;
@@ -44,7 +43,20 @@ header {
 			list-style: none;
 
 			img {
-				max-width: 50px;
+				max-width: 35px;
+			}
+			.router-link {
+				text-decoration: none;
+				color: hsl(0, 0%, 0%);
+
+				@media (prefers-color-scheme: dark) {
+					color: hsl(0, 0%, 98%);
+				}
+
+				&:hover {
+					text-decoration: underline;
+					color: hsl(200, 100%, 49%);
+				}
 			}
 		}
 
@@ -59,9 +71,11 @@ header {
 			a {
 				text-decoration: none;
 				color: inherit;
+				font-weight: bold;
 
 				&:hover {
 					text-decoration: underline;
+					color: hsl(200, 100%, 49%);
 				}
 			}
 		}

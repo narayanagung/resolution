@@ -36,12 +36,12 @@ defineEmits(["toggle-complete", "edit-todo", "update-todo", "delete-todo"]);
 		</div>
 		<div
 			class="todo-actions"
-			title="Action">
+			title="Action edit | delete">
 			<Icon
 				v-if="todo.isEditing"
 				class="icon"
 				icon="mdi:check-bold"
-				color="#22ab7a"
+				color="#41af7f"
 				width="25"
 				height="25"
 				@click="$emit('edit-todo', index)" />
@@ -49,14 +49,14 @@ defineEmits(["toggle-complete", "edit-todo", "update-todo", "delete-todo"]);
 				v-else
 				class="icon"
 				icon="mdi:pencil"
-				color="#097cca"
+				color="#56a3ff"
 				width="25"
 				height="25"
 				@click="$emit('edit-todo', index)" />
 			<Icon
 				class="icon"
 				icon="mdi:trash"
-				color="#ff4c4c"
+				color="#ff0000"
 				width="25"
 				height="25"
 				@click="$emit('delete-todo', todo.id)" />
@@ -70,12 +70,16 @@ li {
 	align-items: center;
 	gap: 1rem;
 	padding: 1rem 0.5rem;
-	background-color: #f5f5f5;
-	box-shadow: 0 10px 13.5px -2.5px rgb(0 0 0 / 0.1), 0 4px 5px -3px rgb(0 0 0 / 0.1);
+	background-color: hsl(0, 0%, 96%);
+
+	@media (prefers-color-scheme: dark) {
+		background-color: hsl(0, 0%, 23%);
+	}
 
 	&:hover {
 		.todo-actions {
 			opacity: 1;
+			transition: 150ms ease-in-out;
 		}
 	}
 
@@ -83,9 +87,13 @@ li {
 		appearance: none;
 		width: 25px;
 		height: 25px;
-		background-color: hsla(154, 46%, 47%, 0.2);
+		background-color: hsl(0, 0%, 80%);
 		border-radius: 50%;
 		cursor: pointer;
+
+		@media (prefers-color-scheme: dark) {
+			background-color: hsl(0, 0%, 50%);
+		}
 
 		&:checked {
 			background-color: hsl(154, 46%, 47%);
@@ -110,7 +118,6 @@ li {
 		display: flex;
 		gap: 0.5rem;
 		opacity: 0;
-		transition: 150ms ease-in-out;
 
 		.icon {
 			cursor: pointer;
