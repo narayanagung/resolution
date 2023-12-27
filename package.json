@@ -1,5 +1,5 @@
 {
-  "name": "todos",
+  "name": "resolution",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@formkit/auto-animate": "^0.8.1",
     "@vueuse/core": "^10.7.0",
     "vue": "^3.3.11",
     "vue-router": "^4.2.5"
