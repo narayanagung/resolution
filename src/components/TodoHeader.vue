@@ -10,12 +10,13 @@ import { formatDate } from "@vueuse/core";
 				<img
 					title="Logo"
 					src="../assets/logo.png"
-					alt="Vue 3 Logo" />
+					alt="Vue 3 Logo"
+				/>
 				<RouterLink
 					class="router-link"
 					to="/"
 					title="Homepage"
-					><h4>Resolution - {{ formatDate(new Date(), "YYYY") }}</h4></RouterLink
+					>{{ formatDate(new Date(), "YYYY") }} Resolution</RouterLink
 				>
 			</div>
 			<ul class="nav-routes">
@@ -48,13 +49,14 @@ header {
 			.router-link {
 				text-decoration: none;
 				color: hsl(0, 0%, 0%);
+				font-size: large;
+				font-weight: 600;
 
 				@media (prefers-color-scheme: dark) {
 					color: hsl(0, 0%, 98%);
 				}
 
 				&:hover {
-					text-decoration: underline;
 					color: hsl(200, 100%, 49%);
 				}
 			}
@@ -71,10 +73,9 @@ header {
 			a {
 				text-decoration: none;
 				color: inherit;
-				font-weight: bold;
+				font-weight: 600;
 
 				&:hover {
-					text-decoration: underline;
 					color: hsl(200, 100%, 49%);
 				}
 			}

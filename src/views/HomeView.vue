@@ -3,6 +3,8 @@ import TodoCreate from "@/components/TodoCreate.vue";
 import TodoItem from "@/components/TodoItem.vue";
 import { computed, ref, watch } from "vue";
 import { uid } from "uid";
+import { vAutoAnimate } from "@formkit/auto-animate";
+import { formatDate } from "@vueuse/core";
 
 const todoList = ref([]);
 
@@ -61,16 +63,9 @@ const deleteTodo = (todoId) => {
 
 <template>
 	<main>
-		<h1>What will you accomplished this year?</h1>
+		<h1>What will you accomplish this year?</h1>
 		<TodoCreate @create-todo="createTodo" />
-		<h4
-			class="all-clear"
-			v-if="todoCompleted && todoList.length > 0">
-			Mission All Clear! you have completed all of your goals!
-		</h4>
-		<ul
-			v-if="todoList.length > 0"
-			class="todo-list">
+		<ul v-auto-animate v-if="todoList.length > 0" class="todo-list">
 			<TodoItem
 				v-for="(todo, index) in todoList"
 				:todo="todo"
@@ -78,13 +73,17 @@ const deleteTodo = (todoId) => {
 				@toggle-complete="toggleTodoComplete"
 				@edit-todo="toggleEditTodo"
 				@update-todo="updateTodo"
-				@delete-todo="deleteTodo" />
+				@delete-todo="deleteTodo"
+			/>
 		</ul>
-		<h4
-			class="todo-init-msg"
-			v-else>
-			Clueless? Create your own todo's now!
-		</h4>
+		<div class="msg" v-else>
+			<p>No goals yet... It's ok; no pressure.</p>
+			<img title="Ladida~ take your time~" src="../assets/init.png" alt="Yotsuba goals" />
+		</div>
+		<div class="msg" v-if="todoCompleted && todoList.length > 0">
+			<p>Well done! You have completed all of your {{ formatDate(new Date(), "YYYY") }} Resolution!</p>
+			<img title="Respect" src="../assets/completed.png" alt="Yotsuba complete" />
+		</div>
 	</main>
 </template>
 
@@ -93,17 +92,29 @@ main {
 	display: flex;
 	flex-direction: column;
 	max-width: 35rem;
-	width: 100%;
 	margin: 0 auto;
 	padding: 1rem;
 
 	h1 {
-		margin-bottom: 1rem;
+		margin-bottom: 2rem;
+		text-align: left;
+		line-height: 4rem;
+		font-weight: 800;
+		font-size: 2.5rem;
+		text-transform: initial;
 	}
 
-	h4 {
-		margin: 2rem 0 1rem 0;
+	.msg {
+		margin: 2rem auto 0 auto;
 		text-align: center;
+		background-color: hsla(0%, 0%, 50%, 0.1);
+		padding: 2rem 9rem;
+		border-radius: 4px;
+
+		img {
+			margin-top: 1rem;
+			max-width: 10rem;
+		}
 	}
 
 	.todo-list {

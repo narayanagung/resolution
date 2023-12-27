@@ -17,49 +17,15 @@ defineEmits(["toggle-complete", "edit-todo", "update-todo", "delete-todo"]);
 
 <template>
 	<li>
-		<input
-			title="Click to complete"
-			type="checkbox"
-			:checked="todo.isCompleted"
-			@input="$emit('toggle-complete', index)" />
+		<input title="Click to complete" type="checkbox" :checked="todo.isCompleted" @input="$emit('toggle-complete', index)" />
 		<div class="todo">
-			<input
-				v-if="todo.isEditing"
-				type="text"
-				:value="todo.todo"
-				@input="$emit('update-todo', $event.target.value, index)" />
-			<span
-				v-else
-				:class="{ 'completed-todo': todo.isCompleted }"
-				>{{ todo.todo }}</span
-			>
+			<input v-if="todo.isEditing" type="text" :value="todo.todo" @input="$emit('update-todo', $event.target.value, index)" />
+			<span v-else :class="{ 'completed-todo': todo.isCompleted }">{{ todo.todo }}</span>
 		</div>
-		<div
-			class="todo-actions"
-			title="Action edit | delete">
-			<Icon
-				v-if="todo.isEditing"
-				class="icon"
-				icon="mdi:check-bold"
-				color="#41af7f"
-				width="25"
-				height="25"
-				@click="$emit('edit-todo', index)" />
-			<Icon
-				v-else
-				class="icon"
-				icon="mdi:pencil"
-				color="#56a3ff"
-				width="25"
-				height="25"
-				@click="$emit('edit-todo', index)" />
-			<Icon
-				class="icon"
-				icon="mdi:trash"
-				color="#ff0000"
-				width="25"
-				height="25"
-				@click="$emit('delete-todo', todo.id)" />
+		<div class="todo-actions" title="Action edit | delete">
+			<Icon v-if="todo.isEditing" class="icon" icon="mdi:check-bold" width="25" height="25" @click="$emit('edit-todo', index)" />
+			<Icon v-else class="icon" icon="mdi:pencil" width="25" height="25" @click="$emit('edit-todo', index)" />
+			<Icon class="icon" icon="mdi:trash-can" width="25" height="25" @click="$emit('delete-todo', todo.id)" />
 		</div>
 	</li>
 </template>
@@ -69,14 +35,20 @@ li {
 	display: flex;
 	align-items: center;
 	gap: 1rem;
-	padding: 1rem 0.5rem;
-	background-color: hsl(0, 0%, 96%);
+	padding: 1rem;
+	background-color: hsl(0, 0%, 100%);
+	border-radius: 4px;
+	box-shadow: 4px 4px 4px hsl(0, 0%, 53%);
+	outline: 2px solid hsl(0, 0%, 50%);
 
 	@media (prefers-color-scheme: dark) {
 		background-color: hsl(0, 0%, 23%);
+		box-shadow: 4px 4px 4px hsl(0, 0%, 13%);
 	}
 
 	&:hover {
+		transition: 150ms ease-in-out;
+
 		.todo-actions {
 			opacity: 1;
 			transition: 150ms ease-in-out;
@@ -84,20 +56,9 @@ li {
 	}
 
 	input[type="checkbox"] {
-		appearance: none;
 		width: 25px;
 		height: 25px;
-		background-color: hsl(0, 0%, 80%);
-		border-radius: 50%;
 		cursor: pointer;
-
-		@media (prefers-color-scheme: dark) {
-			background-color: hsl(0, 0%, 50%);
-		}
-
-		&:checked {
-			background-color: hsl(154, 46%, 47%);
-		}
 	}
 
 	.todo {
@@ -110,7 +71,13 @@ li {
 		input[type="text"] {
 			width: 100%;
 			padding: 0.5rem 0.5rem;
-			border: 2px solid #41b080;
+			border: 1px solid hsl(0, 0%, 0%);
+			border-radius: 4px;
+			border: 1px solid hsl(154, 46%, 47%);
+
+			&:focus {
+				outline: none;
+			}
 		}
 	}
 
