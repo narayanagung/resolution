@@ -35,7 +35,7 @@ html {
 	}
 
 	::-webkit-scrollbar-track {
-		background: hsla(0, 0%, 0%, 0);
+		background: transparent;
 	}
 
 	::-webkit-scrollbar-thumb {
@@ -50,8 +50,11 @@ html {
 
 body {
 	background-color: hsl(0, 0%, 95%);
+	color: hsl(0, 0%, 10%);
+
 	@media (prefers-color-scheme: dark) {
 		background-color: hsl(0, 0%, 10%);
+		color: hsl(0, 0%, 95%);
 	}
 	background-image: radial-gradient(
 		circle,

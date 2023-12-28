@@ -7,24 +7,11 @@ import { formatDate } from "@vueuse/core";
 	<header>
 		<nav class="nav-wrap">
 			<div class="branding">
-				<img
-					title="Logo"
-					src="../assets/logo.png"
-					alt="Vue 3 Logo"
-				/>
-				<RouterLink
-					class="router-link"
-					to="/"
-					title="Homepage"
-					>{{ formatDate(new Date(), "YYYY") }} Resolution</RouterLink
-				>
+				<img title="Logo" src="../assets/logo.png" alt="Vue 3 Logo" />
+				<RouterLink class="router-link" to="/" title="Homepage">Resolusi {{ formatDate(new Date(), "YYYY") }}</RouterLink>
 			</div>
 			<ul class="nav-routes">
-				<RouterLink
-					to="/about"
-					title="About this app"
-					>About</RouterLink
-				>
+				<RouterLink to="/about" title="About this app">About</RouterLink>
 			</ul>
 		</nav>
 	</header>
@@ -58,6 +45,7 @@ header {
 
 				&:hover {
 					color: hsl(200, 100%, 49%);
+					transition: 150ms ease-in-out;
 				}
 			}
 		}
@@ -77,6 +65,7 @@ header {
 
 				&:hover {
 					color: hsl(200, 100%, 49%);
+					transition: 150ms ease-in-out;
 				}
 			}
 		}

@@ -35,10 +35,11 @@ li {
 	display: flex;
 	align-items: center;
 	gap: 1rem;
+	margin-top: 0.5rem;
 	padding: 1rem;
 	background-color: hsl(0, 0%, 100%);
 	border-radius: 4px;
-	box-shadow: 4px 4px 4px hsl(0, 0%, 53%);
+	box-shadow: 4px 4px 4px hsl(0, 0%, 50%);
 	outline: 2px solid hsl(0, 0%, 50%);
 
 	@media (prefers-color-scheme: dark) {
@@ -66,6 +67,7 @@ li {
 
 		.completed-todo {
 			text-decoration: line-through;
+			color: hsl(0, 0%, 50%);
 		}
 
 		input[type="text"] {

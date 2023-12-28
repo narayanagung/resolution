@@ -22,7 +22,7 @@ const createTodo = () => {
 
 <template>
 	<div class="input-wrap" :class="{ 'input-err': todoState.invalid }">
-		<input type="text" placeholder="Add your goals" v-model="todoState.todo" />
+		<input type="text" name="create" placeholder="Add your goals" v-model="todoState.todo" />
 		<button title="Add goals to the list" @click="createTodo()">Add</button>
 	</div>
 	<small v-show="todoState.invalid" class="err-msg">{{ todoState.errMsg }}</small>
@@ -40,7 +40,7 @@ const createTodo = () => {
 	}
 
 	&.input-err {
-		border-color: hsla(0, 100%, 50%, 0.9);
+		outline: 2px solid hsla(0, 100%, 50%, 0.9);
 
 		button {
 			background-color: hsla(0, 100%, 50%, 0.9);
@@ -67,6 +67,7 @@ const createTodo = () => {
 		border: none;
 		cursor: pointer;
 		font-weight: bold;
+		font-size: medium;
 		color: white;
 		box-shadow: 4px 4px 4px hsl(0, 0%, 53%);
 

@@ -1,6 +1,7 @@
 <script setup>
 import TodoCreate from "@/components/TodoCreate.vue";
 import TodoItem from "@/components/TodoItem.vue";
+import TodoShare from "@/components/TodoShare.vue";
 import { computed, ref, watch } from "vue";
 import { uid } from "uid";
 import { vAutoAnimate } from "@formkit/auto-animate";
@@ -76,14 +77,15 @@ const deleteTodo = (todoId) => {
 				@delete-todo="deleteTodo"
 			/>
 		</ul>
-		<div class="msg" v-else>
+		<div class="msg-init" v-else>
 			<p>No goals yet... It's ok; no pressure.</p>
-			<img title="Ladida~ take your time~" src="../assets/init.png" alt="Yotsuba goals" />
+			<img title="Take your time~" src="../assets/init.png" alt="Manga character by Kiyohiko Azuma 'Yotsuba Koiwai'" />
 		</div>
-		<div class="msg" v-if="todoCompleted && todoList.length > 0">
-			<p>Well done! You have completed all of your {{ formatDate(new Date(), "YYYY") }} Resolution!</p>
-			<img title="Respect" src="../assets/completed.png" alt="Yotsuba complete" />
+		<div class="msg-complete" v-if="todoCompleted && todoList.length > 0">
+			<p>You have completed all of your {{ formatDate(new Date(), "YYYY") }} resolutions! Good job.</p>
+			<img title="Respect" src="../assets/completed.png" alt="Manga character by Kiyohiko Azuma 'Yotsuba Koiwai'" />
 		</div>
+		<TodoShare />
 	</main>
 </template>
 
@@ -94,6 +96,7 @@ main {
 	max-width: 35rem;
 	margin: 0 auto;
 	padding: 1rem;
+	min-height: 90vh;
 
 	h1 {
 		margin-bottom: 2rem;
@@ -101,15 +104,37 @@ main {
 		line-height: 4rem;
 		font-weight: 800;
 		font-size: 2.5rem;
-		text-transform: initial;
+
+		@media screen and (max-width: 565px) {
+			font-size: 2.2rem;
+			line-height: 3.3rem;
+		}
 	}
 
-	.msg {
+	.msg-init {
 		margin: 2rem auto 0 auto;
 		text-align: center;
-		background-color: hsla(0%, 0%, 50%, 0.1);
-		padding: 2rem 9rem;
+		border-radius: 4px 4px 0 0;
+		padding: 1rem;
+		font-weight: 600;
+		font-size: large;
+
+		img {
+			margin-top: 1rem;
+			max-width: 10rem;
+		}
+	}
+	.msg-complete {
+		margin: 2rem auto 0 auto;
+		text-align: center;
 		border-radius: 4px;
+		padding: 2rem;
+		font-weight: 600;
+		font-size: large;
+
+		p {
+			text-wrap: balance;
+		}
 
 		img {
 			margin-top: 1rem;
