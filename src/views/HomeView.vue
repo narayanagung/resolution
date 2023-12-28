@@ -64,7 +64,7 @@ const deleteTodo = (todoId) => {
 
 <template>
 	<main>
-		<h1>What will you accomplish this year?</h1>
+		<h1 v-if="todoList.length < 1">What will you accomplish this year?</h1>
 		<TodoCreate @create-todo="createTodo" />
 		<ul v-auto-animate v-if="todoList.length > 0" class="todo-list">
 			<TodoItem
@@ -79,11 +79,11 @@ const deleteTodo = (todoId) => {
 		</ul>
 		<div class="msg-init" v-else>
 			<p>No goals yet... It's ok; no pressure.</p>
-			<img title="Take your time~" src="../assets/init.png" alt="Manga character by Kiyohiko Azuma 'Yotsuba Koiwai'" />
+			<img title="Take your time~" src="../assets/init.webp" alt="Manga character by Kiyohiko Azuma 'Yotsuba Koiwai'" />
 		</div>
 		<div class="msg-complete" v-if="todoCompleted && todoList.length > 0">
 			<p>You have completed all of your {{ formatDate(new Date(), "YYYY") }} resolutions! Good job.</p>
-			<img title="Respect" src="../assets/completed.png" alt="Manga character by Kiyohiko Azuma 'Yotsuba Koiwai'" />
+			<img title="Respect" src="../assets/completed.webp" alt="Manga character by Kiyohiko Azuma 'Yotsuba Koiwai'" />
 		</div>
 		<TodoShare />
 	</main>
@@ -106,8 +106,8 @@ main {
 		font-size: 2.5rem;
 
 		@media screen and (max-width: 565px) {
-			font-size: 2.2rem;
-			line-height: 3.3rem;
+			font-size: 2rem;
+			line-height: 3rem;
 		}
 	}
 

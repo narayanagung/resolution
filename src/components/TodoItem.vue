@@ -47,6 +47,10 @@ li {
 		box-shadow: 4px 4px 4px hsl(0, 0%, 13%);
 	}
 
+	@media screen and (max-width: 1440px) {
+		box-shadow: none;
+	}
+
 	&:hover {
 		transition: 150ms ease-in-out;
 

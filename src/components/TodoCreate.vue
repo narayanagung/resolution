@@ -39,6 +39,10 @@ const createTodo = () => {
 		box-shadow: 4px 4px 4px hsl(0, 0%, 13%);
 	}
 
+	@media screen and (max-width: 1440px) {
+		box-shadow: none;
+	}
+
 	&.input-err {
 		outline: 2px solid hsla(0, 100%, 50%, 0.9);
 
@@ -69,11 +73,6 @@ const createTodo = () => {
 		font-weight: bold;
 		font-size: medium;
 		color: white;
-		box-shadow: 4px 4px 4px hsl(0, 0%, 53%);
-
-		@media (prefers-color-scheme: dark) {
-			box-shadow: 4px 4px 4px hsl(0, 0%, 13%);
-		}
 
 		&:hover {
 			background-color: hsl(154, 46%, 55%);

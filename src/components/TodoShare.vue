@@ -6,12 +6,12 @@ const share = () => {
 	if (navigator.share) {
 		navigator.share({
 			text: "Keep track of your yearly goals with Resolusi!",
-			url: "https://resolusi.vercel.app",
+			url: "https://re-solusi.vercel.app",
 			title: "Resolusi - List your goals",
 		});
 	} else {
-		navigator.clipboard.writeText("Resolusi - List your goals\nhttps://resolusi.vercel.app \nKeep track of your yearly goals with Resolusi!");
-		swal("Messages copied to clipboard", "Thanks for sharing Resolusi 🙏");
+		navigator.clipboard.writeText("Resolusi - List your goals\nhttps://re-solusi.vercel.app \nKeep track of your yearly goals with Resolusi!");
+		swal("Messages copied to clipboard", "Thanks for sharing 🙏");
 	}
 };
 </script>

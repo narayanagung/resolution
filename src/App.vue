@@ -24,9 +24,6 @@ import TodoHeader from "./components/TodoHeader.vue";
 }
 
 html {
-	@media (prefers-color-scheme: dark) {
-		color: #fafafa;
-	}
 	scrollbar-width: thin;
 
 	::-webkit-scrollbar {
@@ -56,6 +53,12 @@ body {
 		background-color: hsl(0, 0%, 10%);
 		color: hsl(0, 0%, 95%);
 	}
+
+	@media screen and (max-width: 1440px) {
+		animation: none;
+		background-size: cover;
+	}
+
 	background-image: radial-gradient(
 		circle,
 		hsla(334, 65%, 81%, 0.3) 0%,
