@@ -11,6 +11,7 @@
   "dependencies": {
     "@formkit/auto-animate": "^0.8.1",
     "@vueuse/core": "^10.7.0",
+    "sweetalert": "^2.1.2",
     "vue": "^3.3.11",
     "vue-router": "^4.2.5"
   },
