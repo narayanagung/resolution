@@ -97,9 +97,10 @@ main {
 	flex-direction: column;
 	max-width: 35rem;
 	margin: 0 auto;
+	padding-inline: 1rem;
+	min-height: -webkit-fill-available;
 	min-height: 90dvh;
 	min-height: 90vh;
-	padding-inline: 1rem;
 
 	h1 {
 		margin-bottom: 2rem;

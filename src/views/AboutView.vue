@@ -5,11 +5,11 @@ import { Icon } from "@iconify/vue";
 <template>
 	<main>
 		<h1>About</h1>
-		<p>A basic to-do app that only needs to be checked once a year. Resolusi is here to remind you to accomplish your goals.</p>
+		<p>A basic to-do app that only needs to be checked once a year.</p>
 		<h1>Notice</h1>
 		<p>
-			No account required but make sure to <strong>not</strong> use <strong>incognito mode</strong> if you want your list to be saved and persist;
-			otherwise, it's going to be deleted as soon as you exit.
+			No account required; so no synchronization across devices. Use your favorite browser and stick with it. Make sure to not use incognito mode if you
+			want your list to be persist.
 		</p>
 		<h1>Tip</h1>
 		<p>Bookmark this site for easier access to your list.</p>
@@ -48,6 +48,7 @@ main {
 		line-height: 1.8rem;
 		font-size: medium;
 		overflow-wrap: break-word;
+		text-wrap: balance;
 		word-wrap: break-word;
 		word-break: break-word;
 	}

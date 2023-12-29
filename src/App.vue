@@ -24,6 +24,7 @@ import TodoHeader from "./components/TodoHeader.vue";
 }
 
 html {
+	height: -webkit-fill-available;
 	scrollbar-width: thin;
 
 	::-webkit-scrollbar {
@@ -46,6 +47,7 @@ html {
 }
 
 body {
+	height: -webkit-fill-available;
 	background-color: hsl(0, 0%, 90%);
 	color: hsl(0, 0%, 10%);
 

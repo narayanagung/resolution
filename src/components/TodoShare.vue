@@ -51,7 +51,6 @@ const share = () => {
 			color: hsl(0, 0%, 95%);
 			border: none;
 			cursor: pointer;
-			margin-top: 1rem;
 
 			&:hover {
 				background-color: hsl(154, 46%, 55%);
