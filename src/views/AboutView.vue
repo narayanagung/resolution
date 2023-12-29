@@ -18,9 +18,6 @@ import { Icon } from "@iconify/vue";
 			<li>
 				<a title="Github profile" href="https://github.com/narayanagung" target="_blank"><Icon icon="bi:github" width="20" height="20" /></a>
 			</li>
-			<li>
-				<a title="Instagram social" href="https://instagram.com/narayanagung" target="_blank"><Icon icon="bi:instagram" width="20" height="20" /></a>
-			</li>
 		</ul>
 	</main>
 </template>
