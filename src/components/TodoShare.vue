@@ -5,13 +5,13 @@ import swal from "sweetalert";
 const share = () => {
 	if (navigator.share) {
 		navigator.share({
-			text: "Keep track of your yearly goals with Resolusi!",
-			url: "https://re-solusi.vercel.app",
-			title: "Resolusi - List your goals",
+			text: "Keep track of your goals with Resolusi!",
+			url: "https://resolussy.vercel.app",
+			title: "Resolusi - List Your Yearly Goals",
 		});
 	} else {
-		navigator.clipboard.writeText("Resolusi - List your goals\nhttps://re-solusi.vercel.app \nKeep track of your yearly goals with Resolusi!");
-		swal("Messages copied to clipboard", "Thanks for sharing 🙏");
+		navigator.clipboard.writeText("Resolusi - List Your Yearly Goals\nhttps://resolussy.vercel.app \nKeep track of your goals with Resolusi!");
+		swal("Message copied to clipboard", "Thanks for sharing 🙏");
 	}
 };
 </script>

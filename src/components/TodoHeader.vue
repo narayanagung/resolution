@@ -35,7 +35,7 @@ header {
 			}
 			.router-link {
 				text-decoration: none;
-				color: hsl(0, 0%, 0%);
+				color: hsl(0, 0%, 10%);
 				font-size: large;
 				font-weight: 600;
 

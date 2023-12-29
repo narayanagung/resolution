@@ -2,6 +2,7 @@
 import TodoCreate from "@/components/TodoCreate.vue";
 import TodoItem from "@/components/TodoItem.vue";
 import TodoShare from "@/components/TodoShare.vue";
+import TodoDeadline from "@/components/TodoDeadline.vue";
 import { computed, ref, watch } from "vue";
 import { uid } from "uid";
 import { vAutoAnimate } from "@formkit/auto-animate";
@@ -64,7 +65,8 @@ const deleteTodo = (todoId) => {
 
 <template>
 	<main>
-		<h1 v-if="todoList.length < 1">What will you accomplish this year?</h1>
+		<h1 v-show="todoList.length < 1">What will you accomplish this year?</h1>
+		<TodoDeadline v-if="todoList.length > 0" />
 		<TodoCreate @create-todo="createTodo" />
 		<ul v-auto-animate v-if="todoList.length > 0" class="todo-list">
 			<TodoItem
@@ -78,7 +80,7 @@ const deleteTodo = (todoId) => {
 			/>
 		</ul>
 		<div class="msg-init" v-else>
-			<p>No goals yet... It's ok; no pressure.</p>
+			<p>Can't think of one? It's ok, no pressure...</p>
 			<img title="Take your time~" src="../assets/init.webp" alt="Manga character by Kiyohiko Azuma 'Yotsuba Koiwai'" />
 		</div>
 		<div class="msg-complete" v-if="todoCompleted && todoList.length > 0">
@@ -95,19 +97,22 @@ main {
 	flex-direction: column;
 	max-width: 35rem;
 	margin: 0 auto;
-	padding: 1rem;
+	min-height: 90dvh;
 	min-height: 90vh;
+	padding-inline: 1rem;
 
 	h1 {
 		margin-bottom: 2rem;
 		text-align: left;
-		line-height: 4rem;
-		font-weight: 800;
+		line-height: 3.5rem;
+		font-weight: 700;
 		font-size: 2.5rem;
 
 		@media screen and (max-width: 565px) {
-			font-size: 2rem;
+			font-size: 1.7rem;
 			line-height: 3rem;
+			text-align: center;
+			margin-bottom: 1rem;
 		}
 	}
 
@@ -119,18 +124,31 @@ main {
 		font-weight: 600;
 		font-size: large;
 
+		@media screen and (max-width: 565px) {
+			margin: 1rem auto 0 auto;
+		}
+
 		img {
 			margin-top: 1rem;
-			max-width: 10rem;
+			max-width: 8rem;
 		}
 	}
 	.msg-complete {
 		margin: 2rem auto 0 auto;
 		text-align: center;
 		border-radius: 4px;
-		padding: 2rem;
+		padding: 1rem;
 		font-weight: 600;
 		font-size: large;
+
+		@media screen and (max-width: 565px) {
+			margin: 1rem auto 0 auto;
+		}
+
+		span {
+			color: hsl(0, 94%, 48%);
+			opacity: 0.1;
+		}
 
 		p {
 			text-wrap: balance;
@@ -138,7 +156,7 @@ main {
 
 		img {
 			margin-top: 1rem;
-			max-width: 10rem;
+			max-width: 8rem;
 		}
 	}
 

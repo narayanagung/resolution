@@ -16,7 +16,7 @@ defineEmits(["toggle-complete", "edit-todo", "update-todo", "delete-todo"]);
 </script>
 
 <template>
-	<li>
+	<li title="Your goals">
 		<input title="Click to complete" type="checkbox" :checked="todo.isCompleted" @input="$emit('toggle-complete', index)" />
 		<div class="todo">
 			<input v-if="todo.isEditing" type="text" :value="todo.todo" @input="$emit('update-todo', $event.target.value, index)" />
@@ -39,23 +39,21 @@ li {
 	padding: 1rem;
 	background-color: hsl(0, 0%, 100%);
 	border-radius: 4px;
-	box-shadow: 4px 4px 4px hsl(0, 0%, 50%);
 	outline: 2px solid hsl(0, 0%, 50%);
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	word-break: break-word;
+
+	&:hover {
+		outline: 2px solid hsl(0, 0%, 13%);
+		transition: 150ms ease-in-out;
+	}
 
 	@media (prefers-color-scheme: dark) {
 		background-color: hsl(0, 0%, 23%);
-		box-shadow: 4px 4px 4px hsl(0, 0%, 13%);
-	}
 
-	@media screen and (max-width: 1440px) {
-		box-shadow: none;
-	}
-
-	&:hover {
-		transition: 150ms ease-in-out;
-
-		.todo-actions {
-			opacity: 1;
+		&:hover {
+			outline: 2px solid hsl(0, 0%, 60%);
 			transition: 150ms ease-in-out;
 		}
 	}
@@ -90,7 +88,7 @@ li {
 	.todo-actions {
 		display: flex;
 		gap: 0.5rem;
-		opacity: 0;
+		opacity: 1;
 
 		.icon {
 			cursor: pointer;

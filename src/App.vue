@@ -9,7 +9,7 @@ import TodoHeader from "./components/TodoHeader.vue";
 </template>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 *,
 ::after,
 ::before {
@@ -46,7 +46,7 @@ html {
 }
 
 body {
-	background-color: hsl(0, 0%, 95%);
+	background-color: hsl(0, 0%, 90%);
 	color: hsl(0, 0%, 10%);
 
 	@media (prefers-color-scheme: dark) {
@@ -54,41 +54,18 @@ body {
 		color: hsl(0, 0%, 95%);
 	}
 
-	@media screen and (max-width: 1440px) {
-		animation: none;
-		background-size: cover;
-	}
-
 	background-image: radial-gradient(
 		circle,
-		hsla(334, 65%, 81%, 0.3) 0%,
-		hsla(295, 28%, 76%, 0.3) 20%,
-		hsla(263, 33%, 78%, 0.3) 48%,
-		hsla(233, 41%, 79%, 0.3) 77%,
-		hsla(212, 66%, 75%, 0.3) 100%
+		hsla(334, 65%, 81%, 0.2) 0%,
+		hsla(295, 28%, 76%, 0.2) 20%,
+		hsla(263, 33%, 78%, 0.2) 48%,
+		hsla(233, 41%, 79%, 0.2) 77%,
+		hsla(212, 66%, 75%, 0.2) 100%
 	);
-	background-size: 300%;
-	animation: body-animate 20s infinite;
-
-	@keyframes body-animate {
-		0% {
-			background-position: right;
-		}
-		50% {
-			background-position: left;
-		}
-		100% {
-			background-position: right;
-		}
-	}
+	background-size: 200%;
 }
 
 .nav-wrap {
-	max-width: 0 auto;
 	margin: 0 auto;
-
-	@media screen and (min-width: 565px) {
-		max-width: 0 auto;
-	}
 }
 </style>
