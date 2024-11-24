@@ -15,9 +15,9 @@ import { Icon } from "@iconify/vue";
 		<p>Bookmark this site for easier access to your list.</p>
 		<ul class="credit">
 			<li><small>Made with 💟 by narayanagung</small></li>
-			<li>
+			<!-- <li>
 				<a title="Github profile" href="https://github.com/narayanagung" target="_blank"><Icon icon="bi:github" width="20" height="20" /></a>
-			</li>
+			</li> -->
 		</ul>
 	</main>
 </template>
