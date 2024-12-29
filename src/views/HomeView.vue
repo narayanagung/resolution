@@ -66,26 +66,31 @@ const deleteTodo = (todoId) => {
 <template>
 	<main>
 		<h1 v-show="todoList.length < 1">What will you accomplish this year?</h1>
-		<TodoDeadline v-if="todoList.length > 0" />
-		<TodoCreate @create-todo="createTodo" />
-		<ul v-auto-animate v-if="todoList.length > 0" class="todo-list">
-			<TodoItem
-				v-for="(todo, index) in todoList"
-				:todo="todo"
-				:index="index"
-				@toggle-complete="toggleTodoComplete"
-				@edit-todo="toggleEditTodo"
-				@update-todo="updateTodo"
-				@delete-todo="deleteTodo"
-			/>
-		</ul>
-		<div class="msg-init" v-else>
-			<p>Can't think of one? It's ok, no pressure...</p>
-			<img title="Take your time~" src="../assets/init.webp" alt="Manga character by Kiyohiko Azuma 'Yotsuba Koiwai'" />
+		<div v-auto-animate>
+			<TodoDeadline v-if="todoList.length > 0" />
+			<TodoCreate @create-todo="createTodo" />
+			<div class="msg-complete" v-if="todoCompleted && todoList.length > 0">
+				<p>You have completed all of your {{ formatDate(new Date(), "YYYY") }} resolutions! Good job.</p>
+				<img title="Respect" src="../assets/completed.webp" alt="Manga character by Kiyohiko Azuma 'Yotsuba Koiwai'" />
+			</div>
 		</div>
-		<div class="msg-complete" v-if="todoCompleted && todoList.length > 0">
-			<p>You have completed all of your {{ formatDate(new Date(), "YYYY") }} resolutions! Good job.</p>
-			<img title="Respect" src="../assets/completed.webp" alt="Manga character by Kiyohiko Azuma 'Yotsuba Koiwai'" />
+		<div v-auto-animate>
+			<ul v-auto-animate v-if="todoList.length > 0" class="todo-list">
+				<TodoItem
+					v-for="(todo, index) in [...todoList].reverse()"
+					:todo="todo"
+					:index="todoList.length - 1 - index"
+					:key="todo.id"
+					@toggle-complete="toggleTodoComplete"
+					@edit-todo="toggleEditTodo"
+					@update-todo="updateTodo"
+					@delete-todo="deleteTodo"
+				/>
+			</ul>
+			<div class="msg-init" v-else>
+				<p>Can't think of one? It's ok, no pressure...</p>
+				<img title="Take your time~" src="../assets/init.webp" alt="Manga character by Kiyohiko Azuma 'Yotsuba Koiwai'" />
+			</div>
 		</div>
 		<TodoShare />
 	</main>

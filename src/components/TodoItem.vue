@@ -44,6 +44,10 @@ li {
 	word-wrap: break-word;
 	word-break: break-word;
 
+	&:last-child {
+		margin-bottom: 1.5rem;
+	}
+
 	&:hover {
 		outline: 2px solid hsl(0, 0%, 13%);
 		transition: 150ms ease-in-out;
